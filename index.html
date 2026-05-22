@@ -1,179 +1,211 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
-
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>Medical Billing Experts</title>
-
+    <title>Desk International | Servicios Administrativos</title>
     <link rel="stylesheet" href="style.css">
-
 </head>
 
 <body>
-
     <header>
-
-        <div class="nav">
-
-            <img src="images/logo.png" class="logo">
-
+        <div class="nav container">
+            <img src="images/logo.png" class="logo" alt="Desk International logo">
             <nav>
-
                 <ul id="menu">
-
-                    <li><a href="#">Home</a></li>
-                    <li><a href="#">About</a></li>
-                    <li><a href="#">Services</a></li>
-                    <li><a href="#">Tools</a></li>
-                    <li><a href="#">Careers</a></li>
-                    <li><a href="#">Contact</a></li>
-
+                    <li><a href="#inicio">Inicio</a></li>
+                    <li><a href="#servicios">Servicios</a></li>
+                    <li><a href="#beneficios">Beneficios</a></li>
+                    <li><a href="#contacto">Contacto</a></li>
                 </ul>
-
             </nav>
-
-            <div class="menu-btn" id="menuBtn">
-                ☰
-            </div>
-
+            <button class="menu-btn" id="menuBtn" aria-label="Abrir menú">☰</button>
         </div>
-
     </header>
 
-
-
-    <section class="hero">
-
-        <div class="hero-content">
-
-            <p class="hero-top">
-                Your Practice Deserves an Experienced, Reliable Medical Billing Company
-            </p>
-
-            <h1>Desk International Services</h1>
-
-            <h2>Leading Medical Billing Services</h2>
-
-            <p class="hero-sub">
-                Serving Physicians and Healthcare Organizations in Florida for 20 Years
-            </p>
-
-
-            <div class="hero-box">
-
-                <div class="hero-text">
-
-                    Reliable financial and administrative support requires experienced professionals who understand the complexity of modern business operations. At our company, our team brings years of hands-on experience managing billing, payroll processing, cash applications, releasing, and back-office operations for organizations across multiple industries.
-
-We understand the systems. We understand the processes. And we understand how critical accuracy, efficiency, and timeliness are to maintaining healthy business operations. Our team works with leading financial and management platforms to ensure seamless integration and dependable performance.
-
-The truth is, businesses need a trusted partner who can handle essential administrative functions with precision and consistency. We take pride in helping organizations streamline their operations, improve financial visibility, and maintain stable, efficient workflows that support long-term growth.
-
-
+    <main>
+        <section class="hero" id="inicio">
+            <div class="hero-overlay"></div>
+            <div class="hero-content container">
+                <span class="hero-eyebrow">Soluciones administrativas para tu empresa</span>
+                <h1>Desk International</h1>
+                <p class="hero-sub">Recupera tu tiempo y deja la gestión administrativa en manos expertas.</p>
+                <p class="hero-text">
+                    Facturar, contestar teléfonos, entregar productos y tramitar afiliaciones consume gran parte de tu semana. Nosotros te ofrecemos un soporte completo y profesional para que puedas enfocarte en crecer.
+                </p>
+                <div class="hero-actions">
+                    <a href="#contacto" class="button button-primary">Solicita asesoría</a>
+                    <a href="#servicios" class="button button-secondary">Ver servicios</a>
                 </div>
+                <div class="offer-bar">
+                    <p>Call Center, Facturación, Cuentas por Cobrar, Planillas y Afiliaciones Caja e INS.</p>
+                    <strong>Desde $700 al mes</strong>
+                </div>
+            </div>
+        </section>
 
-                <div class="hero-person">
+        <section class="section services" id="servicios">
+            <div class="container">
+                <div class="section-header">
+                    <p class="eyebrow">Qué ofrecemos</p>
+                    <h2>Servicios administrativos que liberan tu operación</h2>
+                </div>
+                <div class="services-grid">
+                    <article class="service-card from-left">
+                        <div class="service-card-content">
+                            <div class="service-info">
+                                <span class="eyebrow">Servicio 01</span>
+                                <h3>Call Center</h3>
+                                <p>Atención a clientes y prospectos con personal capacitado para convertir cada llamada en oportunidad y mantener tu equipo enfocado.</p>
+                            </div>
+                            <div class="service-image-wrapper">
+                                <img src="images/hero.jpg" alt="Call Center profesional">
+                            </div>
+                        </div>
+                    </article>
+                    <article class="service-card from-right">
+                        <div class="service-card-content">
+                            <div class="service-info">
+                                <span class="eyebrow">Servicio 02</span>
+                                <h3>Facturación</h3>
+                                <p>Procesamos tus facturas, notas de crédito y cobros con precisión para mantener una contabilidad ordenada y sin retrasos.</p>
+                            </div>
+                            <div class="service-image-wrapper">
+                                <img src="images/rodolfo-murillo.jpg" alt="Facturación eficiente">
+                            </div>
+                        </div>
+                    </article>
+                    <article class="service-card from-left">
+                        <div class="service-card-content">
+                            <div class="service-info">
+                                <span class="eyebrow">Servicio 03</span>
+                                <h3>Cuentas por cobrar</h3>
+                                <p>Controlamos tu cartera y seguimos cobros clave para reducir la morosidad y mejorar tu liquidez empresarial.</p>
+                            </div>
+                            <div class="service-image-wrapper">
+                                <img src="images/hero.jpg" alt="Cuentas por cobrar">
+                            </div>
+                        </div>
+                    </article>
+                    <article class="service-card from-right">
+                        <div class="service-card-content">
+                            <div class="service-info">
+                                <span class="eyebrow">Servicio 04</span>
+                                <h3>Planillas</h3>
+                                <p>Armamos y gestionamos tus planillas con cumplimiento legal, para que tu nómina sea puntual y sin errores.</p>
+                            </div>
+                            <div class="service-image-wrapper">
+                                <img src="images/rodolfo-murillo.jpg" alt="Gestión de planillas">
+                            </div>
+                        </div>
+                    </article>
+                    <article class="service-card from-left">
+                        <div class="service-card-content">
+                            <div class="service-info">
+                                <span class="eyebrow">Servicio 05</span>
+                                <h3>Afiliaciones Caja e INS</h3>
+                                <p>Realizamos tus afiliaciones y actualizaciones en Caja y en el INS con rapidez y trazabilidad completa.</p>
+                            </div>
+                            <div class="service-image-wrapper">
+                                <img src="images/hero.jpg" alt="Afiliaciones Caja e INS">
+                            </div>
+                        </div>
+                    </article>
+                    <article class="service-card from-right">
+                        <div class="service-card-content">
+                            <div class="service-info">
+                                <span class="eyebrow">Servicio 06</span>
+                                <h3>Apoyo operativo</h3>
+                                <p>Brindamos respaldo administrativo continuo para que tu empresa siga funcionando sin interrupciones.</p>
+                            </div>
+                            <div class="service-image-wrapper">
+                                <img src="images/rodolfo-murillo.jpg" alt="Apoyo operativo administrativo">
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
 
-                    <img src="images/rodolfo-murillo.jpg">
-
-                    <div>
-
-                        <h4>Rodolfo Murillo</h4>
-                        <span>Chief Executive</span>
-
+        <section class="section problem">
+            <div class="container problem-grid">
+                <div>
+                    <p class="eyebrow">Tu tiempo es el activo más valioso</p>
+                    <h2>Deja de perder 3 días a la semana en tareas administrativas</h2>
+                    <p>
+                        Si dedicas gran parte de tu tiempo a facturación, llamadas, entregas y trámites, tu crecimiento se detiene. Con nosotros, tu empresa recobra velocidad y estabilidad.
+                    </p>
+                    <ul>
+                        <li>Call Center de atención al cliente</li>
+                        <li>Facturación exacta y oportuna</li>
+                        <li>Cuentas por cobrar con seguimiento</li>
+                        <li>Planillas y obligaciones laborales</li>
+                        <li>Afiliaciones Caja e INS</li>
+                    </ul>
+                </div>
+                <div class="problem-card">
+                    <h3>Lo que ganas con Desk International</h3>
+                    <p>Más tiempo para tu negocio, menos errores administrativos y una operación alineada con el crecimiento.</p>
+                    <div class="benefit-list">
+                        <span>✔ Menos trabajo manual</span>
+                        <span>✔ Procesos más rápidos</span>
+                        <span>✔ Informes claros</span>
+                        <span>✔ Soporte constante</span>
                     </div>
-
                 </div>
-
             </div>
+        </section>
 
-        </div>
-
-    </section>
-
-
-
-    <section class="services">
-
-        <h2>Main Services</h2>
-
-        <div class="services-grid">
-
-            <div class="service-card">
-                <h3>Full Service</h3>
-                <p>Complete revenue cycle management.</p>
+        <section class="section benefits" id="beneficios">
+            <div class="container">
+                <div class="section-header">
+                    <p class="eyebrow">Beneficios</p>
+                    <h2>Administración y atención profesional para tu empresa</h2>
+                </div>
+                <div class="benefits-grid">
+                    <div class="benefit-card">
+                        <h3>Tranquilidad</h3>
+                        <p>Sabemos cómo cerrar tareas clave sin que tú tengas que supervisar cada paso.</p>
+                    </div>
+                    <div class="benefit-card">
+                        <h3>Resultados</h3>
+                        <p>Menos días perdidos, más foco en ventas y crecimiento real.</p>
+                    </div>
+                    <div class="benefit-card">
+                        <h3>Ahorro</h3>
+                        <p>Soluciones integrales desde $700 al mes, con ahorro en costos administrativos.</p>
+                    </div>
+                </div>
             </div>
+        </section>
 
-            <div class="service-card">
-                <h3>Flexible Software</h3>
-                <p>Compatible with most EHR platforms.</p>
+        <section class="section contact" id="contacto">
+            <div class="container contact-grid">
+                <div>
+                    <p class="eyebrow">Contacto inmediato</p>
+                    <h2>Empieza hoy mismo a crecer con menos carga administrativa</h2>
+                    <p>Envía tus datos y uno de nuestros especialistas te contactará en breve para armar una propuesta a tu medida.</p>
+                </div>
+                <form>
+                    <input type="text" placeholder="Nombre completo" required>
+                    <input type="tel" placeholder="Teléfono" required>
+                    <input type="email" placeholder="Correo electrónico" required>
+                    <textarea placeholder="¿En qué necesitas ayuda?" rows="5" required></textarea>
+                    <button type="submit" class="button button-primary">Enviar solicitud</button>
+                </form>
             </div>
-
-            <div class="service-card">
-                <h3>Customer Focus</h3>
-                <p>Dedicated billing specialists.</p>
-            </div>
-
-        </div>
-
-    </section>
-
-
-
-    <section class="features">
-
-        <h2>Industry Best Billing Services</h2>
-
-        <div class="features-grid">
-
-            <div class="feature">Checks & Balances</div>
-            <div class="feature">Efficiency</div>
-            <div class="feature">Credentialing</div>
-            <div class="feature">Coding Assistance</div>
-            <div class="feature">HIPAA Compliance</div>
-            <div class="feature">Transparent Reporting</div>
-            <div class="feature">Daily Audits</div>
-            <div class="feature">System Expertise</div>
-            <div class="feature">Value-Based Care</div>
-
-        </div>
-
-    </section>
-
-
-
-    <section class="contact">
-
-        <h2>Contact Us</h2>
-
-        <form>
-
-            <input type="text" placeholder="Full Name">
-
-            <input type="email" placeholder="Email">
-
-            <textarea placeholder="Message"></textarea>
-
-            <button type="submit">Send</button>
-
-        </form>
-
-    </section>
-
-
+        </section>
+    </main>
 
     <footer>
-
-        <p>© 2026 Medical Billing Experts</p>
-
+        <div class="container footer-grid">
+            <p>© 2026 Desk International. Gestión administrativa y soporte operativo.</p>
+            <p>Correo: info@deskinternational.cr</p>
+        </div>
     </footer>
 
-
     <script src="script.js"></script>
-
 </body>
 
 </html>
