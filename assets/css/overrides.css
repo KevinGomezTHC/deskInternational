@@ -1,0 +1,496 @@
+/*
+  ============================================================
+  desk-overrides.css
+  Mejoras visuales para Desk International
+  Agregar DESPUÉS de main.css en el <head>:
+  <link rel="stylesheet" href="assets/css/desk-overrides.css" />
+  ============================================================
+*/
+
+/* ── Variables de marca ─────────────────────────────────── */
+:root {
+  --accent:        #e44c65;
+  --accent-light:  #ff6b85;
+  --accent-glow:   rgba(228, 76, 101, 0.18);
+  --bg-deep:       #0f1018;
+  --bg-card:       rgba(255, 255, 255, 0.035);
+  --bg-card-hover: rgba(255, 255, 255, 0.065);
+  --border:        rgba(255, 255, 255, 0.08);
+  --text-muted:    rgba(255, 255, 255, 0.55);
+  --font-display:  'Playfair Display', Georgia, serif;
+  --font-body:     'Roboto', Helvetica, sans-serif;
+  --radius:        12px;
+  --radius-sm:     6px;
+  --shadow-card:   0 8px 32px rgba(0, 0, 0, 0.4);
+  --shadow-glow:   0 0 40px rgba(228, 76, 101, 0.15);
+}
+
+/* ── Fuentes adicionales ────────────────────────────────── */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Roboto:wght@100;300;400&display=swap');
+
+/* ── Base ───────────────────────────────────────────────── */
+html, body {
+  background: var(--bg-deep);
+}
+
+body, input, select, textarea {
+  font-family: var(--font-body);
+  letter-spacing: 0.01em;
+}
+
+/* ── Header ─────────────────────────────────────────────── */
+#header {
+  background: rgba(15, 16, 24, 0.92) !important;
+  backdrop-filter: blur(16px) saturate(1.4);
+  -webkit-backdrop-filter: blur(16px) saturate(1.4);
+  border-bottom: 1px solid var(--border);
+  box-shadow: 0 1px 0 var(--border), 0 4px 24px rgba(0, 0, 0, 0.3) !important;
+  height: 4em;
+  line-height: 4em;
+}
+
+#header h1 a {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.1em;
+  letter-spacing: 0.04em;
+  color: #fff !important;
+  border: none !important;
+  background: linear-gradient(135deg, #fff 40%, var(--accent-light));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+#header nav ul li a:not(.button) {
+  font-weight: 300;
+  font-size: 0.85em;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.7);
+  transition: color 0.2s;
+}
+
+#header nav ul li a:not(.button):hover {
+  color: #fff !important;
+}
+
+/* ── Banner ─────────────────────────────────────────────── */
+#banner {
+  background-color: var(--bg-deep) !important;
+}
+
+#banner:after {
+  background-image: linear-gradient(
+    160deg,
+    rgba(10, 10, 18, 0.97) 0%,
+    rgba(15, 16, 24, 0.92) 60%,
+    rgba(228, 76, 101, 0.08) 100%
+  ) !important;
+}
+
+#banner .content header h2 {
+  font-family: var(--font-display);
+  font-size: 3em;
+  font-weight: 700;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  color: #fff;
+}
+
+#banner .content header p {
+  color: rgba(255, 255, 255, 0.65);
+  font-weight: 300;
+  line-height: 1.8;
+}
+
+/* ── Logo banner: a la derecha, colores originales ──────── */
+
+/* El contenedor .content usa display inline-block en desktop,
+   forzamos flex para que header e imagen queden lado a lado */
+#banner .content {
+  display: inline-flex !important;
+  flex-direction: row !important;
+  align-items: center !important;
+  gap: 4em;
+  text-align: left !important;
+}
+
+#banner .content header {
+  display: block !important;
+  margin: 0 !important;
+  text-align: left !important;
+  flex: 1;
+}
+
+/* Contenedor de la imagen: círculo limpio, colores reales */
+#banner .content .image {
+  flex-shrink: 0;
+  width: 18em !important;
+  height: 18em !important;
+  border-radius: 100% !important;
+  border: 2px solid rgba(228, 76, 101, 0.5) !important;
+  box-shadow: 0 0 0 5px rgba(228, 76, 101, 0.1),
+              0 0 40px rgba(228, 76, 101, 0.15) !important;
+  overflow: hidden !important;
+  background: #fff !important;   /* fondo blanco que el logo necesita */
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+  transition: box-shadow 0.4s ease, transform 0.4s ease;
+  margin: 0 !important;
+}
+
+#banner .content .image:hover {
+  box-shadow: 0 0 0 7px rgba(228, 76, 101, 0.2),
+              0 0 60px rgba(228, 76, 101, 0.25) !important;
+  transform: scale(1.03);
+}
+
+#banner .content .image img {
+  width: 90% !important;
+  height: 90% !important;
+  object-fit: contain !important;
+  border-radius: 0 !important;
+  filter: none !important;       /* colores originales sin alteración */
+  display: block;
+}
+
+/* Responsive: en móvil vuelve a vertical */
+@media screen and (max-width: 980px) {
+  #banner .content {
+    flex-direction: column !important;
+    text-align: center !important;
+    gap: 2em;
+  }
+  #banner .content header {
+    text-align: center !important;
+  }
+  #banner .content .image {
+    width: 12em !important;
+    height: 12em !important;
+  }
+}
+
+/* ── Spotlight: contenido ──────────────────────────────── */
+.spotlight .content {
+  background: rgba(12, 13, 20, 0.97) !important;
+  backdrop-filter: blur(8px);
+}
+
+.spotlight.style1 .content,
+.spotlight.style2 .content,
+.spotlight.style3 .content {
+  border-color: var(--accent) !important;
+}
+
+/* Separador decorativo bajo el subtítulo */
+.spotlight .content header p {
+  font-size: 0.72em;
+  font-weight: 400;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 0.6em;
+}
+
+.spotlight .content header h2 {
+  font-family: var(--font-display);
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+
+/* ── Sección "¿Qué incluye?" (section #one) ─────────────── */
+#one .content {
+  padding: 4em 3em !important;
+}
+
+#one .content h2 {
+  font-family: var(--font-display);
+  font-size: 2.4em;
+  font-weight: 700;
+}
+
+/* Precio destacado */
+#one h3 {
+  font-family: var(--font-display);
+  font-size: 1.6em;
+  font-weight: 700;
+  color: var(--accent) !important;
+  text-shadow: 0 0 20px var(--accent-glow);
+  letter-spacing: -0.01em;
+}
+
+/* Lista de servicios ✓ */
+#one ul li {
+  padding: 0.35em 0;
+  font-weight: 300;
+  color: rgba(255,255,255,0.8);
+  font-size: 0.95em;
+  letter-spacing: 0.02em;
+  transition: color 0.2s;
+}
+
+#one ul li:hover {
+  color: #fff;
+}
+
+/* ── Wrapper style1 (sección "¿Por qué elegir?") ─────────── */
+.wrapper.style1 {
+  background: var(--bg-deep);
+  position: relative;
+  overflow: hidden;
+}
+
+.wrapper.style1::before {
+  content: '';
+  position: absolute;
+  top: -40%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80vw;
+  height: 80vw;
+  max-width: 900px;
+  max-height: 900px;
+  background: radial-gradient(ellipse at center, rgba(228, 76, 101, 0.05) 0%, transparent 65%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.wrapper.style1 .container {
+  position: relative;
+  z-index: 1;
+}
+
+/* Cards de beneficios */
+.wrapper.style1 .box.alt section {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 2em 1.5em;
+  transition: background 0.3s ease, border-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.wrapper.style1 .box.alt section::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: var(--radius);
+  background: linear-gradient(135deg, rgba(228, 76, 101, 0.06) 0%, transparent 60%);
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.wrapper.style1 .box.alt section:hover {
+  background: var(--bg-card-hover);
+  border-color: rgba(228, 76, 101, 0.35);
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-card);
+}
+
+.wrapper.style1 .box.alt section:hover::before {
+  opacity: 1;
+}
+
+/* Ícono mayor rediseñado */
+.icon.major {
+  background: linear-gradient(135deg, rgba(228, 76, 101, 0.15), rgba(228, 76, 101, 0.05)) !important;
+  border: 1px solid rgba(228, 76, 101, 0.3);
+  box-shadow: 0 0 24px rgba(228, 76, 101, 0.12);
+  transition: box-shadow 0.3s, border-color 0.3s;
+}
+
+.wrapper.style1 .box.alt section:hover .icon.major {
+  box-shadow: 0 0 32px rgba(228, 76, 101, 0.28);
+  border-color: rgba(228, 76, 101, 0.6);
+}
+
+/* Texto del ícono (color heredado del alt trick) */
+.icon.major.alt:before {
+  color: var(--accent) !important;
+  text-shadow: none !important;
+}
+
+/* ── Header major (línea decorativa) ────────────────────── */
+header.major:after {
+  background: linear-gradient(90deg, transparent, var(--accent), transparent) !important;
+  height: 1px !important;
+  max-width: 100% !important;
+  width: 100% !important;
+  opacity: 0.6;
+  margin-top: 0.5em;
+}
+
+header.major h2 {
+  font-family: var(--font-display);
+  font-size: 2.2em;
+  font-weight: 700;
+}
+
+header.major p {
+  color: var(--text-muted);
+  font-weight: 300;
+}
+
+/* ── Wrapper style2 (CTA con email) ────────────────────── */
+.wrapper.style2 {
+  background: linear-gradient(135deg, var(--accent) 0%, #c0304a 100%) !important;
+  position: relative;
+  overflow: hidden;
+}
+
+.wrapper.style2::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  right: -10%;
+  width: 50vw;
+  height: 150%;
+  background: rgba(255,255,255,0.04);
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.wrapper.style2 header h2 {
+  font-family: var(--font-display);
+  font-weight: 700;
+}
+
+.wrapper.style2 input[type="email"] {
+  background: rgba(255,255,255,0.12) !important;
+  border-color: rgba(255,255,255,0.3) !important;
+  border-radius: var(--radius-sm);
+  color: #fff !important;
+  backdrop-filter: blur(4px);
+}
+
+.wrapper.style2 input[type="email"]::placeholder {
+  color: rgba(255,255,255,0.55) !important;
+}
+
+.wrapper.style2 input[type="email"]:focus {
+  background: rgba(255,255,255,0.2) !important;
+  border-color: rgba(255,255,255,0.7) !important;
+}
+
+.wrapper.style2 input[type="submit"] {
+  background: rgba(255,255,255,0.15) !important;
+  border: 1px solid rgba(255,255,255,0.5) !important;
+  border-radius: var(--radius-sm);
+  font-weight: 400;
+  letter-spacing: 0.05em;
+  backdrop-filter: blur(4px);
+  transition: background 0.2s, border-color 0.2s !important;
+}
+
+.wrapper.style2 input[type="submit"]:hover {
+  background: rgba(255,255,255,0.28) !important;
+  border-color: #fff !important;
+  box-shadow: none !important;
+}
+
+/* ── Botones globales ────────────────────────────────────── */
+.button {
+  border-radius: var(--radius-sm) !important;
+  letter-spacing: 0.06em;
+  font-size: 0.82em;
+  text-transform: uppercase;
+  font-weight: 300;
+  transition: all 0.25s ease !important;
+}
+
+.button:hover {
+  box-shadow: inset 0 0 0 1px var(--accent), 0 0 16px var(--accent-glow) !important;
+  color: var(--accent) !important;
+}
+
+.button.primary {
+  background: linear-gradient(135deg, var(--accent), #c0304a) !important;
+  box-shadow: 0 4px 16px rgba(228, 76, 101, 0.35) !important;
+}
+
+.button.primary:hover {
+  background: linear-gradient(135deg, var(--accent-light), var(--accent)) !important;
+  box-shadow: 0 6px 24px rgba(228, 76, 101, 0.5) !important;
+  color: #fff !important;
+}
+
+/* ── Footer ─────────────────────────────────────────────── */
+#footer {
+  background: var(--bg-deep) !important;
+  border-top: 1px solid var(--border);
+}
+
+#footer ul.icons li .icon:before {
+  transition: color 0.2s, text-shadow 0.2s;
+  color: rgba(255,255,255,0.45);
+}
+
+#footer ul.icons li:hover .icon:before {
+  color: var(--accent) !important;
+  text-shadow: 0 0 12px var(--accent-glow);
+}
+
+#footer .icons .icon.alt:before {
+  color: var(--bg-deep) !important;
+  text-shadow:
+    1px 0 0 rgba(255,255,255,0.4),
+   -1px 0 0 rgba(255,255,255,0.4),
+    0  1px 0 rgba(255,255,255,0.4),
+    0 -1px 0 rgba(255,255,255,0.4) !important;
+}
+
+#footer .copyright {
+  color: rgba(255,255,255,0.3) !important;
+  font-size: 0.75em;
+  letter-spacing: 0.04em;
+}
+
+/* ── Scrollbar estilizada ────────────────────────────────── */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg-deep);
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(228, 76, 101, 0.4);
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--accent);
+}
+
+/* ── Selección de texto ──────────────────────────────────── */
+::selection {
+  background: rgba(228, 76, 101, 0.35);
+  color: #fff;
+}
+
+/* ── Flecha goto-next ────────────────────────────────────── */
+.goto-next:before {
+  filter: brightness(1.2) drop-shadow(0 0 4px var(--accent));
+}
+
+/* ── Animación de entrada suave para cards ──────────────── */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(16px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.wrapper.fade-up > .container {
+  animation: fadeUp 0.8s ease forwards;
+}
+
+/* ── Responsive tweaks ───────────────────────────────────── */
+@media screen and (max-width: 736px) {
+  #banner .content header h2 {
+    font-size: 2em;
+  }
+
+  .wrapper.style1 .box.alt section {
+    margin-bottom: 1em;
+  }
+}
