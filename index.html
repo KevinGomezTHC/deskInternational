@@ -18,6 +18,7 @@
 					<ul>
 						<li><a href="index.html">Inicio</a></li>
 						<li><a href="#one">Servicios</a></li>
+						<li><a href="#paquetes">Paquetes</a></li>
 						<li><a href="#contacto" class="button primary">Contacto</a></li>
 					</ul>
 				</nav>
@@ -32,6 +33,9 @@
 						Facturar, contestar teléfonos, entregar productos, tramitar afiliaciones.</p>
 						<p style="font-weight: 300; font-size: 1.2em; margin-top: 1.5em;">Este proceso consume 3 días de tu semana.<br><strong style="font-weight: 400;">Por eso NO CRECES</strong></p>
 						<p style="font-weight: 300; margin-top: 1.5em;">Nosotros te ofrecemos la solución</p>
+						<ul class="actions">
+							<li><a href="#paquetes" class="button primary scrolly">Conoce los paquetes</a></li>
+						</ul>
 					</header>
 					<span class="image"><img src="images/logo.jpeg" alt="Desk International" /></span>
 				</div>
@@ -69,6 +73,66 @@
 					</div>
 				</div>
 				<a href="#two" class="goto-next scrolly">Next</a>
+			</section>
+
+			<!-- Paquetes -->
+			<section id="paquetes" class="wrapper package-section">
+				<div class="container">
+					<header class="major">
+						<h2>Un paquete para cada etapa</h2>
+						<p>Elige el nivel de apoyo que necesita tu negocio. Puedes solicitar una cotización sin compromiso.</p>
+					</header>
+					<div class="package-grid">
+						<article class="package-card">
+							<p class="package-kicker">Operación diaria</p>
+							<h3>Esencial</h3>
+							<p class="package-description">Delegas las tareas administrativas y recuperas tiempo para atender tu negocio.</p>
+							<p class="package-price"><strong>$700</strong><span>/ mes</span></p>
+							<ul class="package-features">
+								<li>Call center</li>
+								<li>Facturación</li>
+								<li>Cuentas por cobrar</li>
+								<li>Planillas</li>
+								<li>Afiliaciones a Caja e INS</li>
+							</ul>
+							<a href="#contacto" class="button fit package-request" data-package="esencial">Solicitar Esencial</a>
+						</article>
+						<article class="package-card">
+							<p class="package-kicker">Impulsa tu marca</p>
+							<h3>Crecimiento</h3>
+							<p class="package-description">Combina soporte administrativo y mercadeo para impulsar tu presencia.</p>
+							<p class="package-price package-quote">Cotización personalizada</p>
+							<ul class="package-features">
+								<li>Atención de call center</li>
+								<li>Facturación y notas de crédito</li>
+								<li>Seguimiento de cuentas por cobrar</li>
+								<li>Gestión de planillas</li>
+								<li>Afiliaciones a Caja e INS</li>
+								<li>Planificación de mercadeo</li>
+								<li>Gestión de redes sociales y promociones</li>
+							</ul>
+							<a href="#contacto" class="button fit package-request" data-package="crecimiento">Solicitar Crecimiento</a>
+						</article>
+						<article class="package-card package-card-featured">
+							<p class="package-kicker">Paquete más completo</p>
+							<h3>Integral</h3>
+							<p class="package-description">Un solo equipo para acompañar la operación, el mercadeo y la contabilidad.</p>
+							<p class="package-price package-quote">Cotización personalizada</p>
+							<ul class="package-features">
+								<li>Atención de call center</li>
+								<li>Facturación y notas de crédito</li>
+								<li>Seguimiento de cuentas por cobrar</li>
+								<li>Gestión de planillas</li>
+								<li>Afiliaciones a Caja e INS</li>
+								<li>Planificación de mercadeo</li>
+								<li>Gestión de redes sociales y promociones</li>
+								<li>Registro de ingresos y gastos</li>
+								<li>Conciliaciones e informes contables</li>
+							</ul>
+							<a href="#contacto" class="button primary fit package-request" data-package="integral">Solicitar Integral</a>
+						</article>
+					</div>
+				</div>
 			</section>
 
 			<!-- Servicio 1: Call Center -->
@@ -203,7 +267,7 @@
 				<div class="container">
 					<header>
 						<h2>¿Listo para transformar tu empresa?</h2>
-						<p>Déjanos ayudarte a gestionar tu administración de forma profesional. Ingresa tu correo para recibir más información sobre nuestros planes.</p>
+						<p>Cuéntanos qué paquete te interesa y nos pondremos en contacto contigo.</p>
 					</header>
 					<!-- 
 						FORMSPREE: 
@@ -212,15 +276,24 @@
 						3. Reemplaza "TU_ID_AQUI" con tu código, ejemplo:
 						   action="https://formspree.io/f/xyzabc123"
 					-->
-					<form method="POST" action="mailto:tucorreo@gmail.com" enctype="text/plain" class="cta">
+					<form method="POST" action="contact.php" class="cta" id="package-form">
 						<div class="row gtr-uniform gtr-50">
-							<div class="col-8 col-12-xsmall">
+							<div class="col-4 col-12-xsmall">
 								<input type="email" name="email" id="email" placeholder="Tu correo electrónico" required />
 							</div>
 							<div class="col-4 col-12-xsmall">
-								<input type="submit" value="Más Información" class="fit primary" />
+								<select name="package" id="package-choice" required>
+									<option value="" selected disabled>Selecciona un paquete</option>
+									<option value="esencial">Esencial</option>
+									<option value="crecimiento">Crecimiento</option>
+									<option value="integral">Integral</option>
+								</select>
+							</div>
+							<div class="col-4 col-12-xsmall">
+								<input type="submit" value="Solicitar información" class="fit primary" />
 							</div>
 						</div>
+						<p class="form-status" id="form-status" role="status" aria-live="polite"></p>
 					</form>
 				</div>
 			</section>
@@ -251,6 +324,38 @@
 		<script src="assets/js/breakpoints.min.js"></script>
 		<script src="assets/js/util.js"></script>
 		<script src="assets/js/main.js"></script>
+		<script>
+			(function () {
+				var packageChoice = document.getElementById('package-choice');
+				var packageForm = document.getElementById('package-form');
+				var formStatus = document.getElementById('form-status');
+
+				document.querySelectorAll('.package-request').forEach(function (button) {
+					button.addEventListener('click', function () {
+						packageChoice.value = button.dataset.package;
+					});
+				});
+
+				packageForm.addEventListener('submit', function (event) {
+					event.preventDefault();
+					formStatus.textContent = 'Enviando tu solicitud...';
+
+					fetch(packageForm.action, {
+						method: 'POST',
+						body: new FormData(packageForm),
+						headers: { 'Accept': 'application/json' }
+					})
+						.then(function (response) { return response.json(); })
+						.then(function (result) {
+							formStatus.textContent = result.message;
+							if (result.success) packageForm.reset();
+						})
+						.catch(function () {
+							formStatus.textContent = 'No pudimos enviar tu solicitud. Inténtalo de nuevo más tarde.';
+						});
+				});
+			})();
+		</script>
 
 	</body>
 </html>

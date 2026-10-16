@@ -1,20 +1,31 @@
 <?php
 // Obtener el email del formulario
 $email = isset($_POST['email']) ? trim($_POST['email']) : '';
+$package_key = isset($_POST['package']) ? trim($_POST['package']) : '';
 
-// Validar email
-if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+$packages = [
+    'esencial' => ['name' => 'Esencial', 'price' => '$700 al mes'],
+    'crecimiento' => ['name' => 'Crecimiento', 'price' => 'cotización personalizada'],
+    'integral' => ['name' => 'Integral', 'price' => 'cotización personalizada'],
+];
+
+// Validar correo y paquete
+if (!filter_var($email, FILTER_VALIDATE_EMAIL) || !isset($packages[$package_key])) {
     header('Content-Type: application/json');
-    echo json_encode(['success' => false, 'message' => 'Por favor ingresa un email válido']);
+    http_response_code(400);
+    echo json_encode(['success' => false, 'message' => 'Ingresa un correo válido y selecciona un paquete.']);
     exit;
 }
 
+$package = $packages[$package_key];
+
 // Email del cliente
 $client_email = $email;
-$client_subject = "¡Gracias por tu interés en Desk International!";
+$client_subject = "Recibimos tu solicitud del paquete {$package['name']}";
 $client_message = "Hola,\n\n";
-$client_message .= "¡Gracias por tu interés en nuestros servicios!\n\n";
-$client_message .= "Hemos recibido tu correo y nos estaremos contactando pronto para ofrecerte la mejor solución para tu empresa.\n\n";
+$client_message .= "Gracias por solicitar información sobre el paquete {$package['name']}.\n";
+$client_message .= "Precio: {$package['price']}.\n\n";
+$client_message .= "Hemos recibido tu solicitud y nos pondremos en contacto contigo pronto.\n\n";
 $client_message .= "Nuestro equipo te llamará en los próximos 2-3 días hábiles para:\n";
 $client_message .= "- Entender tus necesidades específicas\n";
 $client_message .= "- Brindarte una consulta personalizada\n";
@@ -25,7 +36,6 @@ $client_message .= "✓ Facturación\n";
 $client_message .= "✓ Cuentas por Cobrar\n";
 $client_message .= "✓ Planillas\n";
 $client_message .= "✓ Afiliaciones Caja e INS\n\n";
-$client_message .= "Por solo \$700 al mes\n\n";
 $client_message .= "¿Preguntas? Contáctanos:\n";
 $client_message .= "📱 WhatsApp: +506 XXXX-XXXX\n";
 $client_message .= "📧 Email: info@deskinternational.com\n\n";
@@ -43,9 +53,11 @@ $client_sent = mail($client_email, $client_subject, $client_message, $headers);
 
 // Email al administrador (opcional - para tu registro)
 $admin_email = "admin@deskinternational.com"; // Cambiar por tu email
-$admin_subject = "Nuevo lead: " . $email;
+$admin_subject = "Solicitud {$package['name']}: " . $email;
 $admin_message = "Se ha registrado un nuevo interesado:\n\n";
 $admin_message .= "Email: " . $email . "\n";
+$admin_message .= "Paquete: " . $package['name'] . "\n";
+$admin_message .= "Precio: " . $package['price'] . "\n";
 $admin_message .= "Fecha: " . date('Y-m-d H:i:s') . "\n";
 
 $admin_sent = mail($admin_email, $admin_subject, $admin_message, $headers);
